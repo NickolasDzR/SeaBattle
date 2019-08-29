@@ -27,3 +27,5 @@ function display(output) {
   clunkCounter = clunkCounter + 1;
 }
 var clunkCounter = 0;
+thingamajig(2);
+console.log(clunkCounter);
