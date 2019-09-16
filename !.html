@@ -12,105 +12,120 @@
     <p id="raspberry" class="AltText">Alt</p>
     <h2 class="altText">Alt</h2>
     <script>
-        var chevy = {
-            make: "Chevy",
-            model: "Bel Air",
-            year: 1957,
-            color: "red",
-            passengers: 2,
-            convertible: false,
-            mileage: 1021
-        }
-        for (var prop in chevy) {
-            console.log(prop + ": " + chevy[prop]);
-        }
+        // var chevy = {
+        //     make: "Chevy",
+        //     model: "Bel Air",
+        //     year: 1957,
+        //     color: "red",
+        //     passengers: 2,
+        //     convertible: false,
+        //     mileage: 1021
+        // }
+        // for (var prop in chevy) {
+        //     console.log(prop + ": " + chevy[prop]);
+        // }
 
-        var scoop = document.getElementById("raspberry");
-        var altText = scoop.getAttribute("AltText");
-        console.log("i cant see")
-        console.log(altText);
+        // var scoop = document.getElementById("raspberry");
+        // var altText = scoop.getAttribute("AltText");
+        // console.log("i cant see")
+        // console.log(altText);
 
-        var price = 100;
+        // var price = 100;
 
-        if (price >= 200 & price <= 600) {
-            alert("Price is right, buy the gadget");
-        } else {
-            alert("Price is too low or too High! Don't buy the gadget.");
-        }
+        // if (price >= 200 & price <= 600) {
+        //     alert("Price is right, buy the gadget");
+        // } else {
+        //     alert("Price is too low or too High! Don't buy the gadget.");
+        // }
 
-        var rover = {
-            dogName: "rover",
-            dogWeight: 23
-        }
-        var spot = {
-            dogName: "spot",
-            dogWeight: 13
-        }
+        // var rover = {
+        //     dogName: "rover",
+        //     dogWeight: 23
+        // }
+        // var spot = {
+        //     dogName: "spot",
+        //     dogWeight: 13
+        // }
 
-        var voice = function (dogWeight, dogName) {
-            if (dogWeight > 20) {
-                console.log(dogName + " Says WOOF WOOF");
-            } else {
-                console.log(dogName + " Says woof woof");
+        // var voice = function (dogWeight, dogName) {
+        //     if (dogWeight > 20) {
+        //         console.log(dogName + " Says WOOF WOOF");
+        //     } else {
+        //         console.log(dogName + " Says woof woof");
+        //     }
+        // }
+
+        // voice(rover.dogWeight, rover.dogName);
+        // voice(spot.dogWeight, spot.dogName);
+
+        // var chat1 = {
+        //     name: "Best party, ever",
+        //     guests: 10,
+        //     voice: true
+        // }
+
+        // var chat2 = {
+        //     name: "Best party, ever",
+        //     guests: 10,
+        //     voice: true
+        // }
+
+        // if (chat1 === chat2) {
+        //     console.log("Yeah, this is true. Chat1 equals chat2");
+        // } else {
+        //     console.log("Nope!")
+        // }
+
+        // var numberPhone = "123-4567";
+        // var splitPhone = [];
+
+        // function checkNumber(numberTelephone) {
+        //     if (numberTelephone.charAt(3) !== "-") {
+        //         return false
+        //     } else {
+        //         splitPhone = numberTelephone.split("-")
+        //     }
+        //     var first = splitPhone[0];
+        //     var second = splitPhone[1];
+        //     if (first.length !== 3 || second.length !== 4) {
+        //         return false;
+        //     }
+        //     return true;
+        // }
+        // checkNumber(numberPhone);
+        // console.log(checkNumber(numberPhone));
+
+
+        // function Duck(sound) {
+        //     this.sound = sound;
+        //     this.quack = function () {
+        //         console.log(this.sound);
+        //     }
+
+        // }
+
+        // var toy = new Duck("quack quack");
+
+        // toy.quack();
+
+        // console.log(typeof toy);
+        // console.log(toy instanceof Duck);
+        // console.log(toy)
+
+        var guesses = "16";
+        var locations = ["06", "16", "26"];
+
+        fire = function (guess) {
+            for (var i = 0; i < locations.length; i++) {
+                var ship = this.ships[i];
+                var index = locations.indexOf(guesses);
+                if (index >= 0) {
+                    console.log("Yep");
+                }
             }
         }
 
-        voice(rover.dogWeight, rover.dogName);
-        voice(spot.dogWeight, spot.dogName);
-
-        var chat1 = {
-            name: "Best party, ever",
-            guests: 10,
-            voice: true
-        }
-
-        var chat2 = {
-            name: "Best party, ever",
-            guests: 10,
-            voice: true
-        }
-
-        if (chat1 === chat2) {
-            console.log("Yeah, this is true. Chat1 equals chat2");
-        } else {
-            console.log("Nope!")
-        }
-
-        var numberPhone = "123-4567";
-        var splitPhone = [];
-
-        function checkNumber(numberTelephone) {
-            if (numberTelephone.charAt(3) !== "-") {
-                return false
-            } else {
-                splitPhone = numberTelephone.split("-")
-            }
-            var first = splitPhone[0];
-            var second = splitPhone[1];
-            if (first.length !== 3 || second.length !== 4) {
-                return false;
-            }
-            return true;
-        }
-        checkNumber(numberPhone);
-        console.log(checkNumber(numberPhone));
-
-
-        function Duck(sound) {
-            this.sound = sound;
-            this.quack = function () {
-                console.log(this.sound);
-            }
-
-        }
-
-        var toy = new Duck("quack quack");
-
-        toy.quack();
-
-        console.log(typeof toy);
-        console.log(toy instanceof Duck);
-        console.log(toy)
+        console.log(fire(guesses));
     </script>
 </body>
 
