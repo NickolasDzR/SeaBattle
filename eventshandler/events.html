@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+    </style>
+    <script>
+        window.onload = init;
+
+        function init() {
+            var images = document.getElementsByTagName("img");
+            console.log(images.length)
+            for (var i = 0; i < images.length; i++) {
+                images[i].onclick = showAnswer;
+            }
+        }
+
+        function showAnswer(eventObj) {
+            var image = eventObj.target;
+
+            var name = image.id;
+            name = name + ".jpg";
+            image.src = name;
+        }
+    </script>
+</head>
+
+<body>
+    <img src="zeroblur.jpg" id="zero" alt="#">
+    <img src="oneblur.jpg" id="one" alt="#">
+    <img src="twoblur.jpg" id="two" alt="#">
+    <img src="threeblur.jpg" id="three" alt="#">
+    <img src="fourblur.jpg" id="four" alt="#">
+    <img src="fiveblur.jpg" id="five" alt="#">
+</body>
+
+</html>
