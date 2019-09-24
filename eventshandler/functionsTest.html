@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function fun(echo) {
+            console.log(echo);
+        };
+        fun("hello");
+
+        function boo(aFunction) {
+            aFunction("boo");
+        }
+        boo(fun);
+
+        console.log(fun);
+        fun(boo);
+        var moreFun = fun;
+        moreFun("hello again");
+
+        function echoMaker() {
+            return fun;
+        }
+        var bigFun = echoMaker();
+        bigFun("is there an echo?");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
