@@ -9,25 +9,29 @@
     <script>
         var passengers = [{
                 name: "Jane Doloop",
-                paid: true
+                paid: true,
+                ticket: "coach"
             },
             {
                 name: "Dr.Evil",
-                paid: true
+                paid: true,
+                ticket: "firstclass"
             },
             {
                 name: "Sue Property",
-                paid: false
+                paid: false,
+                ticket: "improved"
             },
             {
                 name: "John Funcall",
-                paid: true
+                paid: true,
+                ticket: "coach"
             }
         ];
 
-        function processPassengers(passengers, testFunction) {
+        function processPassengers(passengers, test) {
             for (var i = 0; i < passengers.length; i++) {
-                if (testFunction(passengers[i])) {
+                if (test(passengers[i])) {
                     return false;
                 }
             }
@@ -42,6 +46,42 @@
             return (!passenger.paid);
         }
 
+        function createDrinkOrder(passenger) {
+            var orderFunction;
+            if (passenger.ticket === "firstclass") {
+                orderFunction = function () {
+                    alert("Would you like a coctail or wine?");
+                };
+            } else if (passenger.ticket === "coach") {
+                orderFunction = function () {
+                    alert("Your choice is cola or water.");
+                };
+            } else {
+                orderFunction = function () {
+                    alert("Your choice is cola, water or wine.");
+                }
+            }
+            return orderFunction;
+        }
+
+        function createDinnerOrder(passenger) {
+            var orderFunction;
+            if (passenger.ticket === "firstclass") {
+                orderFunction = function () {
+                    alert("Would you like a chicken or pasta?");
+                };
+            } else if (passenger.ticket === "coach") {
+                orderFunction = function () {
+                    alert("Your choice is nuts or crackers.");
+                };
+            } else {
+                orderFunction = function () {
+                    alert("Your choice is snacks, cheese plate.");
+                }
+            }
+            return orderFunction;
+        }
+
         var allCanFly = processPassengers(passengers, checkFlyList)
         if (!allCanFly) {
             console.log("The plain can't take off: we have a passenger on the no-fly list")
@@ -52,28 +92,23 @@
             console.log("The plain can't take off: not everyone has paid.")
         }
 
-        function printPassenger(passenger) {
+        function serveCustomer(passanger) {
+            var getDrinkOrderFunction = createDrinkOrder(passanger);
+            var getDinerOrderFunction = createDinnerOrder(passanger);
+            getDrinkOrderFunction();
+            getDinerOrderFunction();
+            getDrinkOrderFunction();
+            getDrinkOrderFunction();
+            getDinerOrderFunction();
+            getDinerOrderFunction();
+        }
+
+        function servePassengers(passengers) {
             for (var i = 0; i < passengers.length; i++) {
-                if (passengers[i].paid) {
-                    console.log("His Name is " + passengers[i].name + ", and he has paid for ticket");
-                } else {
-                    console.log("His Name is " + passengers[i].name + ", and he hasn't paid for ticket");
-                }
+                serveCustomer(passengers[i]);
             }
         }
-        processPassengers(passengers, printPassenger);
-
-        function fun(echo) {
-            console.log(echo);
-        }
-
-        fun("Hello");
-
-        function boo(aFunction) {
-            aFunction("boo")
-        }
-
-        boo(fun);
+        servePassengers(passengers);
     </script>
 </head>
 

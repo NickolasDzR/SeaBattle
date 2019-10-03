@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Robot(name, year, owner) {
+            this.name = name;
+            this.year = year;
+            this.owner = owner;
+        }
+
+        Robot.prototype.maker = "ObjectRUs"
+        Robot.prototype.speak = function () {
+            console.log("Do you wanna speak? Let's go");
+        }
+
+        Robot.prototype.makeCoffee = function () {
+            console.log("Do you wanna coffee? okay, i am on my way");
+        }
+
+        Robot.prototype.blinkLights = function () {
+            console.log("I am blinkin light on and off");
+        }
+
+        var robby = new Robot("Robby", 1956, "Dr.Morbius");
+        var rosie = new Robot("Rosie", 1962, "George Jetson");
+
+        robby.onOffSwitch = true;
+        robby.MakeCoffee = function () {
+            console.log("I am fetching coffee from starbucks")
+        }
+
+        rosie.cleanHouse = function () {
+            console.log("Okay, you wanna i clean house, i will done that")
+        }
+
+        console.log(robby.name + " i was made by" + robby.maker + " in " + robby.year + " and is owned by " + robby
+            .owner);
+
+        robby.makeCoffee();
+        robby.blinkLights();
+
+        console.log(rosie.name + " i was made by" + rosie.maker + " in " + rosie.year + " and is owned by " + rosie
+            .owner);
+
+        rosie.cleanHouse();
+    </script>
+</body>
+
+</html>

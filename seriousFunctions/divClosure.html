@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,
+        button {
+            margin: 10px;
+        }
+
+        div {
+            padding: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var count = 0;
+            var message = "You clicked me ";
+            var div = document.getElementById("message");
+
+            var button = document.getElementById("clickme");
+            button.onclick = function () {
+                count++
+                div.innerHTML = message + count + " times!";
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <button id="clickme">Click me!</button>
+    <div id="message"></div>
+</body>
+
+</html>
