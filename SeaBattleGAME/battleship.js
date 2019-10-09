@@ -72,56 +72,65 @@ var model = {
 var controller = {
     guesses: 0,
     processGuess: function (guess) {
-        var location = parseGuess(guess);
-        if (location) {
-            this.guesses++
-            var hit = model.fire(location)
-            if (hit && model.shipsSunk === model.numShips) {
-                view.displayMessage("You sank all my battleships, in " + this.guesses + " guesess");
-            }
+        // var location = parseGuess(guess);
+        // if (location) {
+        //     this.guesses++
+        //     var hit = model.fire(location)
+        //     if (hit && model.shipsSunk === model.numShips) {
+        //         view.displayMessage("You sank all my battleships, in " + this.guesses + " guesess");
+        //     }
+        var location = guess;
+        this.guesses++
+        var hit = model.fire(location)
+        if (hit && model.shipsSunk === model.numShips) {
+            view.displayMessage("You sank all my battleships, in " + this.guesses + " guesess");
         }
+        // }
+
     }
 }
 
-function parseGuess(guess) {
-    var alphabet = ["A", "B", "C", "D", "E", "F", "G"];
-    if (guess === null || guess.length !== 2) {
-        alert("Oops, please enter a letter and a number on the board.");
-    } else {
-        firstChar = guess.charAt(0);
-        var row = alphabet.indexOf(firstChar);
-        var column = guess.charAt(1);
-        if (isNaN(row) || isNaN(column)) {
-            alert("Oops, that isn't on the board.");
-        } else if (row < 0 || row >= model.boardSize || column < 0 || column >= model.boardSize) {
-            alert("OOps, that's off the board!")
-        } else {
-            return row + column;
-        }
-    }
-    return null;
+// function parseGuess(guess) {
+//     if (guess === null || guess.length !== 2) {
+//         alert("Oops, please enter a letter and a number on the board.");
+//     } else {
+//         var column = guess.charAt(1);
+//         if (isNaN(row) || isNaN(column)) {
+//             alert("Oops, that isn't on the board.");
+//         } else if (row < 0 || row >= model.boardSize || column < 0 || column >= model.boardSize) {
+//             alert("OOps, that's off the board!")
+//         } else {
+//             return row + column;
+//         }
+//     }
+//     return null;
+// }
+
+// function init() {
+//     var fireButton = document.getElementById("fireButton");
+//     fireButton.onclick = handleFireButton; // run handleFireButton function
+//     var guessInput = document.getElementById("guessInput");
+//     guessInput.onkeypress = handleKeyPress
+// }
+
+// function handleKeyPress(e) {
+//     var fireButton = document.getElementById("fireButton")
+//     if (e.keyCode === 13) {
+//         fireButton.click();
+//         return false;
+//     }
+// }
+
+// function handleFireButton() {
+//     var guessInput = document.getElementById("guessInput");
+//     var guess = ourGuess;
+//     controller.processGuess(guess);
+//     guessInput.value = "";
+// }
+
+function getIdElement(element_id) {
+    var guessFromInput = element_id;
+    controller.processGuess(guessFromInput);
 }
 
-function init() {
-    var fireButton = document.getElementById("fireButton");
-    fireButton.onclick = handleFireButton;
-    var guessInput = document.getElementById("guessInput");
-    guessInput.onkeypress = handleKeyPress
-}
-
-function handleKeyPress(e) {
-    var fireButton = document.getElementById("fireButton")
-    if (e.keyCode === 13) {
-        fireButton.click();
-        return false;
-    }
-}
-
-function handleFireButton() {
-    var guessInput = document.getElementById("guessInput");
-    var guess = guessInput.value;
-    controller.processGuess(guess);
-    guessInput.value = "";
-}
-
-window.onload = init;
+// window.onload = init;
